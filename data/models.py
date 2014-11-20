@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Acceleration(models.Model):
-    id = models.IntegerField(primary_key=True)
     device_id = models.CharField(max_length=255)
     acceleration = models.IntegerField()
     timestamp = models.DateTimeField()
