@@ -7,4 +7,5 @@ urlpatterns = patterns('api.views',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^demo_post/', 'demo_post'),
+    url(r'^save_acceleration/', 'save_acceleration'),
 )
