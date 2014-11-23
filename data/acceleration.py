@@ -5,7 +5,6 @@ Created on Nov 19, 2014
 '''
 from data.serializers import AccelerationSerializer
 from lib.logger import CarLogger
-from datetime import datetime
 
 logger = CarLogger().getLogger()
 
@@ -17,18 +16,13 @@ def add(data):
     @return: None.
     '''
     ret = False
-    new_data = []
-    for i in data:
-        if not isinstance(i['timestamp'], datetime):
-            i['timestamp'] = datetime.fromtimestamp(float(i['timestamp']))
-        new_data.append(i)
-    a_se = AccelerationSerializer(data=new_data, many=True)
+    a_se = AccelerationSerializer(data=data, many=True)
     if a_se.is_valid():
         a_se.save()
         ret = True
     else:
         logger.info('invalid data for acceleration table.\n' +
-                    'data: %s' % new_data)
+                    'data: %s' % data)
         ret = False
     return ret
 
