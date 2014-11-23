@@ -20,7 +20,7 @@ def add(data):
     new_data = []
     for i in data:
         if not isinstance(i['timestamp'], datetime):
-            i['timestamp'] = datetime.strptime(i['timestamp'], '%Y-%m-%d %H:%M:%S')
+            i['timestamp'] = datetime.fromtimestamp(float(i['timestamp']))
         new_data.append(i)
     a_se = AccelerationSerializer(data=new_data, many=True)
     if a_se.is_valid():
