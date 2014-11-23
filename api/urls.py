@@ -8,5 +8,5 @@ urlpatterns = patterns('api.views',
 
     url(r'^demo_post/', 'demo_post'),
     url(r'^save_acceleration/', 'save_acceleration'),
-    url(r'^save_loation/', 'save_loation'),
+    url(r'^save_location/', 'save_location'),
 )
